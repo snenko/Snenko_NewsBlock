@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Snenko_NewsBlock::Posts" sortOrder="10" title="Posts">
+					<resource id="Snenko_NewsBlock::Posts_save" sortOrder="10" title="Save Posts"/>
+					<resource id="Snenko_NewsBlock::Posts_delete" sortOrder="20" title="Delete Posts"/>
+					<resource id="Snenko_NewsBlock::Posts_update" sortOrder="30" title="Update Posts"/>
+					<resource id="Snenko_NewsBlock::Posts_view" sortOrder="40" title="View Posts"/>
+				</resource>
+				<resource id="Snenko_NewsBlock::Labels" sortOrder="20" title="Labels">
+					<resource id="Snenko_NewsBlock::Labels_save" sortOrder="10" title="Save Labels"/>
+					<resource id="Snenko_NewsBlock::Labels_delete" sortOrder="20" title="Delete Labels"/>
+					<resource id="Snenko_NewsBlock::Labels_update" sortOrder="30" title="Update Labels"/>
+					<resource id="Snenko_NewsBlock::Labels_view" sortOrder="40" title="View Labels"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

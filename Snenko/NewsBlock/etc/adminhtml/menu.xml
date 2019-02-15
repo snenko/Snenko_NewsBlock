@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+
+		<add id="Snenko_NewsBlock::content"
+			 title="News Block"
+			 module="Snenko_NewsBlock"
+			 parent="Magento_Backend::content"
+			 sortOrder="777"
+			 resource="Snenko_NewsBlock::elements"/>
+
+		<add id="Snenko_NewsBlock::snenko_newsblock_posts"
+			 title="News Block"
+			 translate="title"
+			 module="Snenko_NewsBlock"
+			 sortOrder="0"
+			 parent="Snenko_NewsBlock::content"
+			 action="snenko_newsblock/posts/index"
+			 resource="Snenko_NewsBlock::post"/>
+
+		<add id="Snenko_NewsBlock::snenko_newsblock_labels"
+			 title="News Block Labels"
+			 translate="title"
+			 module="Snenko_NewsBlock"
+			 sortOrder="5"
+			 parent="Snenko_NewsBlock::content"
+			 action="snenko_newsblock/labels/index"
+			 resource="Snenko_NewsBlock::labels"/>
+
+	</menu>
+</config>

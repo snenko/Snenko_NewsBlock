@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route method="POST" url="/V1/snenko-newsblock/posts">
+		<service class="Snenko\NewsBlock\Api\PostsRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Snenko_NewsBlock::Posts_save"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/snenko-newsblock/posts/search">
+		<service class="Snenko\NewsBlock\Api\PostsRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Snenko_NewsBlock::Posts_view"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/snenko-newsblock/posts/:postsId">
+		<service class="Snenko\NewsBlock\Api\PostsRepositoryInterface" method="getById"/>
+		<resources>
+			<resource ref="Snenko_NewsBlock::Posts_view"/>
+		</resources>
+	</route>
+	<route method="PUT" url="/V1/snenko-newsblock/posts/:postsId">
+		<service class="Snenko\NewsBlock\Api\PostsRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Snenko_NewsBlock::Posts_update"/>
+		</resources>
+	</route>
+	<route method="DELETE" url="/V1/snenko-newsblock/posts/:postsId">
+		<service class="Snenko\NewsBlock\Api\PostsRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Snenko_NewsBlock::Posts_delete"/>
+		</resources>
+	</route>
+	<route method="POST" url="/V1/snenko-newsblock/labels">
+		<service class="Snenko\NewsBlock\Api\LabelsRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Snenko_NewsBlock::Labels_save"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/snenko-newsblock/labels/search">
+		<service class="Snenko\NewsBlock\Api\LabelsRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Snenko_NewsBlock::Labels_view"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/snenko-newsblock/labels/:labelsId">
+		<service class="Snenko\NewsBlock\Api\LabelsRepositoryInterface" method="getById"/>
+		<resources>
+			<resource ref="Snenko_NewsBlock::Labels_view"/>
+		</resources>
+	</route>
+	<route method="PUT" url="/V1/snenko-newsblock/labels/:labelsId">
+		<service class="Snenko\NewsBlock\Api\LabelsRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Snenko_NewsBlock::Labels_update"/>
+		</resources>
+	</route>
+	<route method="DELETE" url="/V1/snenko-newsblock/labels/:labelsId">
+		<service class="Snenko\NewsBlock\Api\LabelsRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Snenko_NewsBlock::Labels_delete"/>
+		</resources>
+	</route>
+</routes>

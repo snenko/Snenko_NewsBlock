@@ -1,0 +1,147 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="buttons" xsi:type="array">
+			<item name="add" xsi:type="array">
+				<item name="name" xsi:type="string">add</item>
+				<item name="label" translate="true" xsi:type="string">Add new Posts</item>
+				<item name="class" xsi:type="string">primary</item>
+				<item name="url" xsi:type="string">*/*/new</item>
+			</item>
+		</item>
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">snenko_newsblock_posts_index.snenko_newsblock_posts_grid_data_source</item>
+			<item name="deps" xsi:type="string">snenko_newsblock_posts_index.snenko_newsblock_posts_grid_data_source</item>
+		</item>
+		<item name="spinner" xsi:type="string">snenko_newsblock_posts_columns</item>
+	</argument>
+	<dataSource name="snenko_newsblock_posts_grid_data_source">
+		<argument name="dataProvider" xsi:type="configurableObject">
+			<argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+			<argument name="name" xsi:type="string">snenko_newsblock_posts_grid_data_source</argument>
+			<argument name="primaryFieldName" xsi:type="string">posts_id</argument>
+			<argument name="requestFieldName" xsi:type="string">id</argument>
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+					<item name="update_url" path="mui/index/render" xsi:type="url"/>
+					<item name="storageConfig" xsi:type="array">
+						<item name="indexField" xsi:type="string">posts_id</item>
+					</item>
+				</item>
+			</argument>
+		</argument>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="sticky" xsi:type="boolean">true</item>
+			</item>
+		</argument>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="snenko_newsblock_posts_columns">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="editorConfig" xsi:type="array">
+					<item name="selectProvider" xsi:type="string">snenko_newsblock_posts_index.snenko_newsblock_posts_index.snenko_newsblock_posts_columns.ids</item>
+					<item name="enabled" xsi:type="boolean">true</item>
+					<item name="indexField" xsi:type="string">posts_id</item>
+					<item name="clientConfig" xsi:type="array">
+						<item name="saveUrl" path="snenko_newsblock/Posts/inlineEdit" xsi:type="url"/>
+						<item name="validateBeforeSave" xsi:type="boolean">false</item>
+					</item>
+				</item>
+				<item name="childDefaults" xsi:type="array">
+					<item name="fieldAction" xsi:type="array">
+						<item name="provider" xsi:type="string">snenko_newsblock_posts_index.snenko_newsblock_posts_index.snenko_newsblock_posts_columns_editor</item>
+						<item name="target" xsi:type="string">startEdit</item>
+						<item name="params" xsi:type="array">
+							<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+							<item name="1" xsi:type="boolean">true</item>
+						</item>
+					</item>
+				</item>
+			</item>
+		</argument>
+
+		<selectionsColumn name="ids">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="indexField" xsi:type="string">posts_id</item>
+				</item>
+			</argument>
+		</selectionsColumn>
+
+		<column name="posts_id" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="sorting" xsi:type="string">asc</item>
+					<item name="label" translate="true" xsi:type="string">ID</item>
+				</item>
+			</argument>
+		</column>
+
+		<column name="image" class="Snenko\NewsBlock\Ui\Component\Listing\Column\Thumbnail" sortOrder="20">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+					<item name="sortable" xsi:type="boolean">false</item>
+					<item name="altField" xsi:type="string">title</item>
+					<!--<item name="has_preview" xsi:type="string">1</item>-->
+					<item name="label" xsi:type="string" translate="true">Thumbnail</item>
+					<item name="sortOrder" xsi:type="number">10</item>
+				</item>
+			</argument>
+		</column>
+
+		<column name="label" component="Magento_Ui/js/grid/columns/select" sortOrder="30">
+			<settings>
+				<options class="Snenko\NewsBlock\Ui\Component\Listing\Column\Label\Options"/>
+				<filter>select</filter>
+				<editor>
+					<editorType>select</editorType>
+				</editor>
+				<dataType>select</dataType>
+				<label translate="true">Label</label>
+			</settings>
+		</column>
+
+		<column name="location" component="Magento_Ui/js/grid/columns/select" sortOrder="40">
+			<settings>
+				<options class="Snenko\NewsBlock\Ui\Component\Listing\Column\Location\Options"/>
+				<filter>select</filter>
+				<editor>
+					<editorType>select</editorType>
+				</editor>
+				<dataType>select</dataType>
+				<label translate="true">Location</label>
+			</settings>
+		</column>
+
+		<column name="is_active" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
+			<settings>
+				<options class="Magento\Cms\Model\Block\Source\IsActive"/>
+				<filter>select</filter>
+				<editor>
+					<editorType>select</editorType>
+				</editor>
+				<dataType>select</dataType>
+				<label translate="true">Is Active</label>
+			</settings>
+		</column>
+
+		<actionsColumn name="actions" class="Snenko\NewsBlock\Ui\Component\Listing\Column\PostsActions" sortOrder="60">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="indexField" xsi:type="string">posts_id</item>
+				</item>
+			</argument>
+		</actionsColumn>
+
+	</columns>
+</listing>
